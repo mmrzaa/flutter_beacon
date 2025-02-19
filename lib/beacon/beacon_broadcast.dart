@@ -10,13 +10,13 @@ class FlutterBeaconBroadcast {
   final String? identifier;
 
   /// The proximity UUID of beacon.
-  final String proximityUUID;
+  final String? proximityUUID;
 
   /// The major value of beacon.
-  final int major;
+  final int? major;
 
   /// The minor value of beacon.
-  final int minor;
+  final int? minor;
 
   /// The txPower value of beacon. Specify null to use the default value for the device.
   final int? txPower;
@@ -37,19 +37,36 @@ class FlutterBeaconBroadcast {
     if (Platform.isAndroid) {
       assert(advertisingMode != null);
       assert(advertisingTxPowerLevel != null);
+      assert(proximityUUID != null, 'proximityUUID cannot be null');
+      assert(major != null, 'major cannot be null');
+      assert(minor != null, 'minor cannot be null');
     } else if (Platform.isIOS) {
       assert(identifier != null);
+      assert(proximityUUID != null, 'proximityUUID cannot be null');
+      assert(major != null, 'major cannot be null');
+      assert(minor != null, 'minor cannot be null');
     }
   }
 
   /// Serialize current instance object into [Map].
   dynamic get toJson {
-    final map = <String, dynamic>{
-      'proximityUUID': proximityUUID,
-      'major': major,
-      'minor': minor,
-      'txPower': txPower,
-    };
+    final map = <String, dynamic>{};
+
+    if (proximityUUID != null) {
+      map['proximityUUID'] = proximityUUID;
+    }
+
+    if (major != null) {
+      map['major'] = major;
+    }
+
+    if (minor != null) {
+      map['minor'] = minor;
+    }
+
+    if (txPower != null) {
+      map['txPower'] = txPower;
+    }
 
     if (advertisingMode != null) {
       map['advertisingMode'] = advertisingMode!.index;
@@ -60,7 +77,7 @@ class FlutterBeaconBroadcast {
     }
 
     if (identifier != null) {
-      map['identifier'] = identifier!;
+      map['identifier'] = identifier;
     }
 
     return map;

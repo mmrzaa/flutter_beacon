@@ -36,7 +36,7 @@ public class FlutterBeaconPlugin implements FlutterPlugin, ActivityAware, Method
   private ActivityPluginBinding activityPluginBinding;
 
   private FlutterBeaconScanner beaconScanner;
-  private FlutterBeaconBroadcast beaconBroadcast;
+  private FlutterBeaconBroadcast flutterBeaconBroadcast;
   private FlutterPlatform platform;
   
   private BeaconManager beaconManager;
@@ -111,7 +111,7 @@ public class FlutterBeaconPlugin implements FlutterPlugin, ActivityAware, Method
 
     platform = new FlutterPlatform(activity);
     beaconScanner = new FlutterBeaconScanner(this, activity);
-    beaconBroadcast = new FlutterBeaconBroadcast(activity, iBeaconLayout);
+    flutterBeaconBroadcast = new FlutterBeaconBroadcast(activity, iBeaconLayout);
 
     channel = new MethodChannel(messenger, "flutter_beacon");
     channel.setMethodCallHandler(this);
@@ -136,7 +136,7 @@ public class FlutterBeaconPlugin implements FlutterPlugin, ActivityAware, Method
     }
 
     platform = null;
-    beaconBroadcast = null;
+    flutterBeaconBroadcast = null;
 
     channel.setMethodCallHandler(null);
     eventChannel.setStreamHandler(null);
@@ -291,17 +291,17 @@ public class FlutterBeaconPlugin implements FlutterPlugin, ActivityAware, Method
     }
 
     if (call.method.equals("startBroadcast")) {
-      beaconBroadcast.startBroadcast(call.arguments, result);
+      flutterBeaconBroadcast.startBroadcast(call.arguments, result);
       return;
     }
 
     if (call.method.equals("stopBroadcast")) {
-      beaconBroadcast.stopBroadcast(result);
+      flutterBeaconBroadcast.stopBroadcast(result);
       return;
     }
 
     if (call.method.equals("isBroadcasting")) {
-      beaconBroadcast.isBroadcasting(result);
+      flutterBeaconBroadcast.isBroadcasting(result);
       return;
     }
 

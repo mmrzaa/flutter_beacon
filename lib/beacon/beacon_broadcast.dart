@@ -5,7 +5,7 @@
 part of flutter_beacon;
 
 /// Class for managing Beacon Broadcast object.
-class BeaconBroadcast {
+class FlutterBeaconBroadcast {
   /// The unique identifier of region.
   final String? identifier;
 
@@ -25,7 +25,7 @@ class BeaconBroadcast {
 
   final AdvertisingTxPowerLevel? advertisingTxPowerLevel;
 
-  BeaconBroadcast({
+  FlutterBeaconBroadcast({
     this.identifier = 'com.flutterBeacon',
     required this.proximityUUID,
     required this.major,

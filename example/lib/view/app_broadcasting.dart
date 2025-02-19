@@ -174,7 +174,7 @@ class _TabBroadcastingState extends State<TabBroadcasting> {
         if (broadcasting) {
           await flutterBeacon.stopBroadcast();
         } else {
-          await flutterBeacon.startBroadcast(BeaconBroadcast(
+          await flutterBeacon.startBroadcast(FlutterBeaconBroadcast(
             proximityUUID: uuidController.text,
             major: int.tryParse(majorController.text) ?? 0,
             minor: int.tryParse(minorController.text) ?? 0,

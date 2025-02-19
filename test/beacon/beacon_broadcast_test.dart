@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 main() {
   test('main constructor must be equal', () {
-    final beacon = BeaconBroadcast(
+    final beacon = FlutterBeaconBroadcast(
       proximityUUID: 'UUID',
       major: 1,
       minor: 2,

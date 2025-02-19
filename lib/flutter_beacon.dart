@@ -247,7 +247,7 @@ class FlutterBeacon {
     return _onAuthorizationStatus!;
   }
 
-  Future<void> startBroadcast(BeaconBroadcast params) async {
+  Future<void> startBroadcast(FlutterBeaconBroadcast params) async {
     await _methodChannel.invokeMethod('startBroadcast', params.toJson);
   }
 

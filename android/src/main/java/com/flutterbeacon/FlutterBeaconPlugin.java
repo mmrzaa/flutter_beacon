@@ -20,7 +20,8 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
+/// commented because of the plugin error in flutter this method is deprecated in new flutter versions
+// import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 public class FlutterBeaconPlugin implements FlutterPlugin, ActivityAware, MethodCallHandler,
     PluginRegistry.RequestPermissionsResultListener,
@@ -53,13 +54,13 @@ public class FlutterBeaconPlugin implements FlutterPlugin, ActivityAware, Method
   public FlutterBeaconPlugin() {
 
   }
-
-  public static void registerWith(Registrar registrar) {
-    final FlutterBeaconPlugin instance = new FlutterBeaconPlugin();
-    instance.setupChannels(registrar.messenger(), registrar.activity());
-    registrar.addActivityResultListener(instance);
-    registrar.addRequestPermissionsResultListener(instance);
-  }
+/// commented because of the plugin error in flutter this method is deprecated in new flutter versions
+  // public static void registerWith(Registrar registrar) {
+  //   final FlutterBeaconPlugin instance = new FlutterBeaconPlugin();
+  //   instance.setupChannels(registrar.messenger(), registrar.activity());
+  //   registrar.addActivityResultListener(instance);
+  //   registrar.addRequestPermissionsResultListener(instance);
+  // }
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {

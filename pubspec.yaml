@@ -1,6 +1,7 @@
 name: flutter_beacon
 description: Flutter plugin for scanning and transmit as beacon (iBeacon) on Android and iOS.
-version: 0.5.2
+# 0.5.3 deprecated method removed from java plugin
+version: 0.5.3
 homepage: https://github.com/alann-maulana/flutter_beacon
 
 environment:
